@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>16</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <style>
+      #canvas{
+        outline: 5px solid #9000C9;
+      }
+
+    </style>
+    
+  </head>
+  <body>
+  
+    <center>
+      <canvas id="canvas"></canvas>
+      <canvas id="backdrop"></canvas>
+    </center>
+    <img id="img" src="maze1.bmp" height="0px" width="0px"/>
+    
+    <script src="main.js"></script>
+  </body>
+</html>

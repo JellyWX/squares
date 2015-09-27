@@ -1,0 +1,77 @@
+    
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+
+var backdrop = document.getElementById('backdrop');
+var bcontext = backdrop.getContext('2d');
+      
+var posX = 0;
+var posY = 0;
+
+var h = canvas.height;
+
+var incX = posX*(canvas.height/16);
+var incY = posY*(canvas.height/16);
+      
+var windowX = $(window).width();
+var windowY = $(window).height();
+
+
+
+//Function sets canvas size to match browser
+function size(){
+  canvas.height = windowY-(windowY/60);
+  canvas.width = windowY-(windowY/60);
+  
+  context.rect(incX,incY,canvas.height/16,canvas.height/16);
+  context.stroke();
+  
+}
+
+function maze(){
+  backdrop.height = windowY-(windowY/60);
+  backdrop.width = windowX-(windowX/60);
+  
+  bcontext.rect
+}
+
+function move(e){
+  
+  //alert(e.keyCode);
+  var k = e.keyCode;
+  
+  if(k==37){ //Left arrow
+    if(posX!=0){
+      posX-=1;
+    }
+  }
+  if(k==39){ //Right arrow
+    if(posX!=15){
+      posX+=1;
+    }
+  }
+  if(k==38){ //Up arrow
+    if(posY!=0){
+      posY-=1;
+    }
+  }
+  if(k==40){ //Down arrow
+    if(posY!=15){
+      posY+=1;
+    }
+  }
+  
+  incX = posX*(canvas.height/16);
+  incY = posY*(canvas.height/16);
+  
+  canvas.height=canvas.height;
+  context.rect(incX,incY,canvas.height/16,canvas.height/16);
+  context.stroke();
+  
+  
+}
+
+document.onkeydown = move;
+
+canvas.onload=size(); //Sets canvas size on loaded
+backdrop.onload=maze(); //Draws maze
