@@ -1,5 +1,5 @@
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+var a = document.getElementById('canvas');
+var context = a.getContext('2d');
       
 var posX = 0;
 var posY = 0;
@@ -27,12 +27,12 @@ var down=false;
 var centrePixX;
 var centrePixY;
 
-//Function sets canvas size to match browser
+
 function size(){
-  canvas.height = windowY-(windowY/60);
-  canvas.width = windowY-(windowY/60);
+  a.height = windowY-(windowY/60);
+  a.width = windowY-(windowY/60);
   
-  context.rect(incX,incY,canvas.height/16,canvas.height/16);
+  context.rect(incX,incY,a.height/16,a.height/16);
   context.fillStyle='#FF0000';
   context.fill();
   
@@ -77,39 +77,39 @@ function move(e){
     }
   }
   
-  incX = posX*(canvas.height/16);
-  incY = posY*(canvas.height/16);
+  incX = posX*(a.height/16);
+  incY = posY*(a.height/16);
   
-  centrePixX = incX+(canvas.height/32); //A way of centering pixels
-  centrePixY = incY+(canvas.height/32);
+  centrePixX = incX+(a.height/32); //A way of centering pixels
+  centrePixY = incY+(a.height/32);
   
   p = context.getImageData(centrePixX,centrePixY,1,1).data; 
   hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6); //Grabs hexidecimal of the centre of the spot you are about to move onto
   
-  canvas.height=canvas.height;
+  a.height=a.height;
 
   if(hex!='#000000'){
-    incX = posX_old*(canvas.height/16);
-    incY = posY_old*(canvas.height/16);
+    incX = posX_old*(a.height/16);
+    incY = posY_old*(a.height/16);
     posX=posX_old;
     posY=posY_old;
   }
   
   
   context.fillStyle='#FF36B5';
-  context.fillRect(incX,incY,canvas.height/16,canvas.height/16);
+  context.fillRect(incX,incY,a.height/16,a.height/16);
   
   context.fillStyle='#9000C9';
-  context.fillRect((canvas.height/16)*1,(canvas.height/16)*0,(canvas.height/16),(canvas.height/16)*5);
-  context.fillRect((canvas.height/16)*1,(canvas.height/16)*6,(canvas.height/16),(canvas.height/16)*5);
-  context.fillRect((canvas.height/16)*0,(canvas.height/16)*10,(canvas.height/16)*3,(canvas.height/16)*1);
-  context.fillRect((canvas.height/16)*1,(canvas.height/16)*12,(canvas.height/16)*3,(canvas.height/16)*3);
-  context.fillRect((canvas.height/16)*4,(canvas.height/16)*14,(canvas.height/16),(canvas.height/16)*2);
-  context.fillRect((canvas.height/16)*4,(canvas.height/16)*8,(canvas.height/16),(canvas.height/16)*3);
-  context.fillRect((canvas.height/16)*3,(canvas.height/16)*0,(canvas.height/16),(canvas.height/16)*2);
-  context.fillRect((canvas.height/16)*3,(canvas.height/16)*3,(canvas.height/16)*2,(canvas.height/16)*6);
-  context.fillRect((canvas.height/16)*3,(canvas.height/16)*1,(canvas.height/16)*4,(canvas.height/16));
-  context.fillRect((canvas.height/16)*6,(canvas.height/16)*3,(canvas.height/16)*2,(canvas.height/16));
+  context.fillRect((a.height/16)*1,(a.height/16)*0,(a.height/16),(a.height/16)*5);
+  context.fillRect((a.height/16)*1,(a.height/16)*6,(a.height/16),(a.height/16)*5);
+  context.fillRect((a.height/16)*0,(a.height/16)*10,(a.height/16)*3,(a.height/16)*1);
+  context.fillRect((a.height/16)*1,(a.height/16)*12,(a.height/16)*3,(a.height/16)*3);
+  context.fillRect((a.height/16)*4,(a.height/16)*14,(a.height/16),(a.height/16)*2);
+  context.fillRect((a.height/16)*4,(a.height/16)*8,(a.height/16),(a.height/16)*3);
+  context.fillRect((a.height/16)*3,(a.height/16)*0,(a.height/16),(a.height/16)*2);
+  context.fillRect((a.height/16)*3,(a.height/16)*3,(a.height/16)*2,(a.height/16)*6);
+  context.fillRect((a.height/16)*3,(a.height/16)*1,(a.height/16)*4,(a.height/16));
+  context.fillRect((a.height/16)*6,(a.height/16)*3,(a.height/16)*2,(a.height/16));
   
   
   
@@ -120,4 +120,4 @@ function move(e){
 
 document.onkeydown = move;
 
-canvas.onload=size(); //Sets canvas size on loaded
+a.onload=size();
